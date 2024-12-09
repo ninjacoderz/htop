@@ -16,10 +16,10 @@ Process::Process(int pid): pid_(pid) {}
 int Process::Pid() { return pid_; }
 
 void Process::CpuInitialization() {
-  long total_time = LinuxParser::ActiveJiffies(Pid());
+  long time = LinuxParser::ActiveJiffies(Pid());
   float seconds = LinuxParser::UpTime() - UpTime();
   if (seconds != 0)
-    cpu_ = total_time / sysconf(_SC_CLK_TCK) / seconds;
+    cpu_ = time / sysconf(_SC_CLK_TCK) / seconds;
   else
     cpu_ = 0;
 }
