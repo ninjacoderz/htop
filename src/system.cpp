@@ -23,15 +23,15 @@ Processor& System::Cpu() { return cpu_; }
 // Done
 // TODO: Return a container composed of the system's processes
 vector<Process>& System::Processes() { 
-//   processes_.clear();
-//   auto pids = LinuxParser::Pids();
-//   for (int pid: pids ) {
-//     processes_.emplace_back(Process(pid));
-//   }
-//   for (Process &process : processes_){
-//       process.CpuInitialization();
-//   }
-//   std::sort(processes_.begin(), processes_.end());
+  processes_.clear();
+  auto pids = LinuxParser::Pids();
+  for (int pid: pids ) {
+    processes_.emplace_back(Process(pid));
+  }
+  for (Process &process : processes_){
+      process.CpuInitialization();
+  }
+  std::sort(processes_.begin(), processes_.end());
   return processes_; 
 }
 
