@@ -16,7 +16,7 @@ using std::vector;
 // Constructor
 System::System() { cpu_ = Processor(); }
 
-//Done
+// Done
 // TODO: Return the system's CPU
 Processor& System::Cpu() { return cpu_; }
 
@@ -52,5 +52,6 @@ int System::RunningProcesses() { return LinuxParser::RunningProcesses(); }
 // TODO: Return the total number of processes on the system
 int System::TotalProcesses() { return LinuxParser::TotalProcesses(); }
 
+// Done
 // TODO: Return the number of seconds since the system started running
 long System::UpTime() { return  LinuxParser::UpTime(); }
