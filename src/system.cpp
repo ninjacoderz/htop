@@ -24,13 +24,14 @@ Processor& System::Cpu() { return cpu_; }
 // TODO: Return a container composed of the system's processes
 vector<Process>& System::Processes() { 
   processes_.clear();
+  
+  // Get all Process Ids
   auto pids = LinuxParser::Pids();
+  // Init Process with Ids
   for (int pid: pids ) {
     processes_.emplace_back(Process(pid));
   }
-  for (Process &process : processes_){
-      process.CpuInitialization();
-  }
+  
   std::sort(processes_.begin(), processes_.end());
   return processes_; 
 }
